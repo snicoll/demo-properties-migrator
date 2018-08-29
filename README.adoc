@@ -43,6 +43,17 @@ The important piece is that the actuator is running on port 9090 and the `health
 has been customized and is available at `http://localhost:9090/my-health` rather than
 `http://localhost:9090/health`.
 
+## Upgrade App to Spring Boot 2
+If we upgrade the application to Spring Boot, we noticed that properties defined in
+`application.properties` show up as errors. That's because those keys have changed and
+are no longer honoured.
+
+If we start our app now, we can see that the health endpoint is available at
+`http://localhost:8080/actuator/health` (as the default context for actuator endpoints is
+`/actuator` rather than `/` in Spring Boot 2).
+
+The assistance in the IDE is very nice but not all properties are accessible from it. In
+the next step we'll add the migrator.
 
 
 
