@@ -55,7 +55,46 @@ If we start our app now, we can see that the health endpoint is available at
 The assistance in the IDE is very nice but not all properties are accessible from it. In
 the next step we'll add the migrator.
 
+## Add Properties Migrator
+If we add `spring-boot-properties-migrator` to the app, the migration kicks in
+automatically and report the following on startup:
+
+[source]
+----
+2018-08-29 09:54:28.497  WARN 77310 --- [           main] o.s.b.c.p.m.PropertiesMigrationListener  :
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'applicationConfig: [classpath:/application.properties]':
+	Key: endpoints.health.path
+		Line: 6
+		Replacement: management.endpoints.web.path-mapping.health
+	Key: management.port
+		Line: 3
+		Replacement: management.server.port
 
 
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+2018-08-29 09:54:28.498 ERROR 77310 --- [           main] o.s.b.c.p.m.PropertiesMigrationListener  :
+The use of configuration keys that are no longer supported was found in the environment:
+
+Property source 'applicationConfig: [classpath:/application.properties]':
+	Key: management.security.enabled
+		Line: 4
+		Reason: A global security auto-configuration is now provided.
+	Key: security.basic.enabled
+		Line: 1
+		Reason: The security auto-configuration is no longer customizable.
+
+
+Please refer to the migration guide or reference guide for potential alternatives.
+----
+
+The first report warns us about two properties that could be migrated at runtime and still
+require the source to be updated. The health endpoint is now back at
+`http://localhost:9090/actuator/my-health`.
+
+There are two keys (unused and for demonstration purposes) that are no longer used and for
+which there isn't a replacement. Some dedicated actions are required.
 
  
