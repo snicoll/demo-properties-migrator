@@ -174,3 +174,8 @@ Each configuration key has been temporarily mapped to its replacement for your c
 
 The properties migration has remapped our key at runtime and the report provides more
 information about what needs to be done.
+
+## Fix Configuration Again
+We can now fix our configuration. Once we're done with the migration, be it a Spring Boot
+migration or a 3rd party library/app/starter migration, make sure to remove
+`spring-boot-properties-migrator` as it is not required to run your app.
