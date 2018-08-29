@@ -97,4 +97,10 @@ require the source to be updated. The health endpoint is now back at
 There are two keys (unused and for demonstration purposes) that are no longer used and for
 which there isn't a replacement. Some dedicated actions are required.
 
+## Fix Configuration
+We can now fix configuration based on the advice. If we restart the application, the
+report doesn't show anything particular.
+
+That does not explain how you can use the properties migration with your own keys. Let's
+initiate that in the next step.
  
