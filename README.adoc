@@ -1,0 +1,50 @@
+# Properties migrator demo
+Spring Boot 2 introduced a new feature that allows to inspect the `Environment` on startup
+and give a report of properties usage that are no longer supported.
+
+Properties that can be migrated automatically are migrated at runtime with a `warning`
+report that lists the properties and their replacements so that you can adapt your
+configuration.
+
+Properties that have no replacement or not a one-to-one replacement (e.g. a property that
+was split in two or several properties that were combined into one) are listed in an
+`error` report with some further information.
+
+To enable the report during the migration, simply add an extra module to your project
+
+[source,xml]
+----
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-properties-migrator</artifactId>
+	<scope>runtime</scope>
+</dependency>
+----
+
+Or if you're using Gradle:
+
+[source]
+----
+runtime("org.springframework.boot:spring-boot-properties-migrator")
+----
+
+All the behaviour of the tool is derived from the metadata which means custom starters
+and application configuration can also be migrated the exact same way. This sample project
+showcase different use cases, each in its own commit.
+
+# Steps
+
+## Simple App
+Initially, we have a simple `1.5.` app with several properties used to customize things.
+Not all of them are relevant to this app and have been added solely to demonstrate the
+migration.
+
+The important piece is that the actuator is running on port 9090 and the `health` endpoint
+has been customized and is available at `http://localhost:9090/my-health` rather than
+`http://localhost:9090/health`.
+
+
+
+
+
+ 
