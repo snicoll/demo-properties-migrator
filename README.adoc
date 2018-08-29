@@ -145,3 +145,32 @@ Value for target: 'null'
 Also `demo.application.name` shows up as unknown in our IDE (no assistance whatsoever).
 The next step will fix that and showcase how the properties migrator is reusing the
 metadata transparently.
+
+## Document Deprecation Manually
+The code has been removed but we can still create a
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#configuration-metadata-additional-metadata[manual meta-data entry]
+for the property that the lib used to support. If we do this, we can see that the IDE
+recognizes the key again.
+
+If we start our app with no further change, we get the following:
+
+[source]
+----
+
+Value for target: 'my-test'
+
+2018-08-29 10:39:17.046  WARN 86191 --- [           main] o.s.b.c.p.m.PropertiesMigrationListener  :
+The use of configuration keys that have been renamed was found in the environment:
+
+Property source 'applicationConfig: [classpath:/application.properties]':
+	Key: demo.acme.name
+		Line: 4
+		Replacement: demo.acme.target
+
+
+Each configuration key has been temporarily mapped to its replacement for your convenience. To silence this warning, please update your configuration to use the new keys.
+
+----
+
+The properties migration has remapped our key at runtime and the report provides more
+information about what needs to be done.
