@@ -12,6 +12,7 @@
 
 	<modules>
 		<module>demo-properties-migrator-app</module>
+		<module>demo-properties-migrator-lib</module>
 	</modules>
 
 

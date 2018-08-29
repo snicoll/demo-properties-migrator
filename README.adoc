@@ -103,4 +103,17 @@ report doesn't show anything particular.
 
 That does not explain how you can use the properties migration with your own keys. Let's
 initiate that in the next step.
+
+## Add Simple Library
+A new project called `demo-properties-migrator-lib` showcases a very simple custom
+auto-configuration that exposes two keys: `demo.acme.name` and `demo.acme.counter`. We're
+now using this library in our project that outputs the following on startup:
+
+[source]
+----
+
+Value for name: 'my-test'
+
+----
+
  
