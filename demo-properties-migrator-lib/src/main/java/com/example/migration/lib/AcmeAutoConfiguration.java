@@ -12,7 +12,7 @@ public class AcmeAutoConfiguration {
 	@Bean
 	public ApplicationRunner acmeApplicationRunner(AcmeProperties properties) {
 		return (arguments) -> {
-			System.out.println(String.format("%nValue for name: '%s'%n", properties.getName()));
+			System.out.println(String.format("%nValue for target: '%s'%n", properties.getTarget()));
 		};
 	}
 

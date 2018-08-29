@@ -116,4 +116,15 @@ Value for name: 'my-test'
 
 ----
 
- 
+## Deprecate a Property
+Let's assume in the lifecycle of this project that `demo.acme.name` is not the proper name
+for the feature and `target` is better. It is very easy to deprecate a property and
+introduce a new one, doing the mapping in the code. This deprecating is very simple but
+there is no particular limitation as how the mapping should be done (i.e. the replacement
+can be in a totally different namespace).
+
+We upgrade our app to the next version of the library (`1.1.0`) and everything works the
+same except we have a warning in `application.properties` in our IDE as `demo.acme.name`
+is now deprecated.
+
+Let's ignore the deprecation message for now.
