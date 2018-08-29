@@ -24,17 +24,6 @@ public class AcmeProperties {
 		this.target = target;
 	}
 
-	@DeprecatedConfigurationProperty(replacement = "demo.acme.target")
-	@Deprecated
-	public String getName() {
-		return getTarget();
-	}
-
-	@Deprecated
-	public void setName(String name) {
-		setTarget(name);
-	}
-
 	public int getCounter() {
 		return this.counter;
 	}

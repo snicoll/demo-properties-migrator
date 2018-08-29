@@ -128,3 +128,20 @@ same except we have a warning in `application.properties` in our IDE as `demo.ac
 is now deprecated.
 
 Let's ignore the deprecation message for now.
+
+## Remove the Property
+It's time to introduce a major new release of our library. 2.0.0 can remove the deprecated
+code in 1.1 so let's do that.
+
+If we don't do anything special, our application log looks like as follows:
+
+[source]
+----
+
+Value for target: 'null'
+
+----
+
+Also `demo.application.name` shows up as unknown in our IDE (no assistance whatsoever).
+The next step will fix that and showcase how the properties migrator is reusing the
+metadata transparently.
